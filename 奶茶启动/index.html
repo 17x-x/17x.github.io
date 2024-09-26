@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="shortcut icon" href="1.png">
+    <title>三点几啦！饮茶先啦！</title>
+</head>
+<style>
+    .lucky-wheel {
+        background: url("1.jpg") no-repeat center center;
+        height: 100%;
+        width: 100%;
+        background-size: cover;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+
+    #my-lucky {
+        width: 520px;
+        height: 520px;
+    }
+
+    @media (max-width: 767px) {
+        #my-lucky {
+            width: 350px;
+            height: 350px;
+        }
+    }
+</style>
+<div class="lucky-wheel">
+    <div style="text-align: center;padding-top: 15px;">
+        <h1>今日你饮咗未啊</h1>
+    </div>
+    <div id="my-lucky" style="justify-content: center; margin: 6% auto;"></div>
+    <script src="https://unpkg.com/lucky-canvas@1.7.25"></script>
+    <script>
+        const myLucky = new LuckyCanvas.LuckyWheel('#my-lucky', {
+            
+
+            blocks: [{ padding: '10px', background: '#869cfa' }],
+            prizes: [
+                { background: '#e9e8fe', fonts: [{ text: 'CoCo', top: '30%' }] },
+                { background: '#b8c5f2', fonts: [{ text: '沪上阿姨', top: '30%' }] },
+                { background: '#e9e8fe', fonts: [{ text: '古茗', top: '30%' }] },
+                { background: '#b8c5f2', fonts: [{ text: '喜茶', top: '30%' }] },
+                { background: '#e9e8fe', fonts: [{ text: '奈雪的茶', top: '30%' }] },
+                { background: '#b8c5f2', fonts: [{ text: '茶百道', top: '30%' }] },
+                { background: '#e9e8fe', fonts: [{ text: '瑞幸', top: '30%' }] },
+                { background: '#b8c5f2', fonts: [{ text: 'LINLEE', top: '30%' }] },
+                { background: '#e9e8fe', fonts: [{ text: '蜜雪冰城', top: '30%' }] },
+                { background: '#b8c5f2', fonts: [{ text: '谢谢参与', top: '30%' }] },
+            ],
+            buttons: [
+                { radius: '40%', background: '#617df2' },
+                { radius: '35%', background: '#afc8ff' },
+                {
+                    radius: '30%', background: '#869cfa',
+                    pointer: true,
+                    fonts: [{ text: '开始', top: '-10px' }]
+                },
+            ],
+            start: function () {
+                // 开始游戏
+                myLucky.play()
+                // 假设接口的请求速度是1s
+                setTimeout(_ => {
+                    // 停止游戏
+                    myLucky.stop(Math.ceil(Math.random() * 11))
+                },)
+            },
+
+            end: function (prize) { // 游戏停止时触发
+                alert('今日饮: ' + prize.fonts[0].text + ' 先啦！')
+            }
+        })
+    </script>
+    <div style="text-align: center;position: fixed;bottom: 0;width: 100%;">
+        <p style="font-size: xx-small;">Copyright © 2000-2024 <strong>Macaca Office</strong> All Rights Reserved. | 开发者：Macaca Network Technologies
+            LTD</p>
+    </div>
+</div>
+
+</html>
