@@ -1,10 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <title>Macaca</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>无法访问</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+        .message {
+            font-size: 88px; /* 增大字体 */
+            font-weight: bold;
+            color: #ff4d4d;
+            text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+            padding: 30px;
+            border: 16px solid #ff4d4d; /* 更粗的边框 */
+            border-radius: 15px;
+            background-color: #fff;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+            animation: flash 1.5s infinite ease-in-out; /* 缓和动画 */
+        }
+
+        /* 定义闪动动画 */
+        @keyframes flash {
+            0%, 100% {
+                opacity: 1; /* 完全显示 */
+            }
+            50% {
+                opacity: 0.5; /* 半透明而非完全消失 */
+            }
+        }
+    </style>
 </head>
 <body>
-<h1>你不够帅,无法访问</h1>
+    <div class="message">你不够帅，无法访问</div>
 </body>
 </html>
